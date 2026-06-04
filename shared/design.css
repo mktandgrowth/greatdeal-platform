@@ -1,0 +1,86 @@
+/* ──────────────────────────────────────────────────────────────────
+   GreatDeal Platform · Design System compartido
+   Aplicar este CSS en TODAS las sub-apps (reels, tasar, buscar)
+   para mantener look unificado.
+
+   Paleta: charcoal black + champagne gold + crisp cream
+   Tipografía: Cormorant Garamond (serif) + Inter / Montserrat (sans)
+   ────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg-base:        #0a0a0b;
+  --bg-card:        #131316;
+  --bg-card-hover:  #1c1c20;
+  --bg-input:       #18181c;
+  --bg-elevated:    #1f1f24;
+
+  /* Text */
+  --text-primary:   #f5f0e6;
+  --text-secondary: #b8b3a7;
+  --text-muted:     #8a8579;
+  --text-faint:     #6a6559;
+
+  /* Gold / accent */
+  --gold:           #c9a86a;
+  --gold-bright:    #d4b876;
+  --gold-dark:      #a68a52;
+  --gold-soft:      rgba(201, 168, 106, 0.18);
+  --gold-border:    rgba(201, 168, 106, 0.35);
+
+  /* States */
+  --success:        #6ec48a;
+  --error:          #e57676;
+
+  /* Borders */
+  --border-subtle:  rgba(245, 240, 230, 0.08);
+  --border-medium:  rgba(245, 240, 230, 0.15);
+
+  /* Shadows */
+  --shadow-soft:    0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px var(--border-subtle);
+  --shadow-glow:    0 4px 20px rgba(201,168,106,0.25);
+}
+
+/* Utilities reusables (clases) */
+.serif {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.sans-display {
+  font-family: 'Montserrat', 'Inter', -apple-system, sans-serif;
+  font-weight: 700;
+}
+
+.luxury-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px; border-radius: 999px;
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  background: var(--gold-soft);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.gold-accent { color: var(--gold); }
+.gold-glow { color: var(--gold); text-shadow: 0 0 24px rgba(201,168,106,0.3); }
+
+.online-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(110, 196, 138, 0.6);
+  display: inline-block; margin-right: 6px;
+}
+
+/* Scrollbars dark themed */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* Focus visible accent */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
