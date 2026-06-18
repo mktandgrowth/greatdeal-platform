@@ -4,157 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>C2C · property market</title>
-<meta name="description" content="C2C — property market. Publicá, comprá y tasá propiedades con IA. Mercado chileno C2C (de persona a persona).">
+<meta name="description" content="C2C — property market. Comprá y vendé propiedades sin intermediarios. Mercado chileno C2C (de persona a persona) con IA.">
 <meta property="og:title" content="C2C · property market">
-<meta property="og:description" content="Publicá, comprá y tasá propiedades con IA. C2C inmobiliario para Chile.">
+<meta property="og:description" content="Comprá y vendé propiedades sin intermediarios. C2C inmobiliario para Chile.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/design.css">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg-base);
     color: var(--text-primary);
     min-height: 100vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
   }
-  .hero {
-    min-height: 90vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 80px 24px 40px;
-    text-align: center;
-    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,106,0.08) 0%, transparent 60%);
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 9vw, 96px);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin: 0 0 16px;
-    color: var(--text-primary);
-  }
-  .hero-title .accent {
-    font-style: italic;
-    color: var(--gold);
-  }
-  .hero-subtitle {
-    font-size: 17px;
-    color: var(--text-secondary);
-    margin: 0 0 48px;
-    max-width: 480px;
-    line-height: 1.5;
-    letter-spacing: 0.01em;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 920px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 24px;
-    padding: 32px 28px;
-    text-align: left;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .card:hover {
-    border-color: var(--gold-border);
-    background: var(--bg-card-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,106,0.12);
-  }
-  .card-icon {
-    font-size: 36px;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 8px;
-    letter-spacing: 0.01em;
-  }
-  .card-desc {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 16px;
-  }
-  .card-cta {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .card-cta::after {
-    content: "→";
-    transition: transform 0.2s;
-  }
-  .card:hover .card-cta::after {
-    transform: translateX(4px);
-  }
-  .card.coming-soon {
-    opacity: 0.5;
-    cursor: default;
-    pointer-events: none;
-  }
-  .card.coming-soon::after {
-    content: "PRÓXIMAMENTE";
-    position: absolute;
-    top: 16px; right: 16px;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    padding: 4px 10px;
-    border: 1px solid var(--border-subtle);
-    border-radius: 999px;
-  }
+
+  /* ── Header ── */
   .header {
     position: sticky; top: 0; z-index: 100;
-    background: linear-gradient(180deg, #0a0a0b 0%, rgba(10,10,11,0.92) 100%);
+    background: linear-gradient(180deg, rgba(10,10,11,0.95) 0%, rgba(10,10,11,0.85) 100%);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
   }
   .header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 14px 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
   .brand {
-    display: flex; align-items: center; gap: 12px;
+    display: flex; flex-direction: column;
     text-decoration: none;
-  }
-  .brand-icon {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    border: 1.5px solid var(--gold-border);
-    background: var(--gold-soft);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; font-weight: 600; color: var(--gold);
+    line-height: 1;
   }
   .brand-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 500;
     color: var(--text-primary);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.5px;
   }
   .brand-text em {
     font-style: italic;
@@ -167,10 +57,11 @@
     letter-spacing: 0.2em;
     text-transform: lowercase;
     font-family: 'Inter', sans-serif;
-    margin-top: 2px;
+    margin-top: 4px;
+    font-weight: 300;
   }
   .header-nav {
-    display: flex; gap: 8px;
+    display: flex; gap: 4px;
   }
   .nav-link {
     color: var(--text-secondary);
@@ -185,18 +76,158 @@
   }
   .nav-link:hover {
     color: var(--gold);
-    border-color: var(--gold-border);
-    background: var(--gold-soft);
+    background: rgba(201,168,106,0.06);
   }
+
+  /* ── Hero landing ── */
+  .landing {
+    min-height: calc(100vh - 70px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 24px 60px;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,106,0.08) 0%, transparent 70%);
+  }
+  .landing-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 11vw, 96px);
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 14px;
+    color: var(--text-primary);
+  }
+  .landing-logo em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .landing-tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    margin-bottom: 64px;
+    font-weight: 300;
+  }
+
+  /* ── 2 cards grandes ── */
+  .landing-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 760px;
+  }
+  .landing-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 44px 36px;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .landing-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .landing-card:hover {
+    border-color: var(--gold-border);
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,106,0.1);
+  }
+  .landing-card:hover::before { opacity: 1; }
+  .landing-card-icon {
+    font-size: 40px;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .landing-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .landing-card-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .landing-card-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: auto;
+  }
+  .landing-card-cta::after {
+    content: "→";
+    transition: transform 0.2s;
+  }
+  .landing-card:hover .landing-card-cta::after {
+    transform: translateX(4px);
+  }
+
+  /* ── Acciones secundarias ── */
+  .secondary-actions {
+    margin-top: 48px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .secondary-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+    font-size: 13px;
+  }
+  .secondary-link:hover {
+    color: var(--gold);
+    border-color: var(--gold-border);
+    background: rgba(201,168,106,0.04);
+  }
+  .secondary-link .icon {
+    margin-right: 6px;
+  }
+
+  /* ── Footer ── */
   .footer {
-    padding: 40px 24px;
+    padding: 30px 24px;
     text-align: center;
     color: var(--text-faint);
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-top: 1px solid var(--border-subtle);
-    margin-top: 60px;
   }
   .footer-mark {
     font-family: 'Cormorant Garamond', serif;
@@ -207,12 +238,18 @@
     letter-spacing: 0.02em;
     margin-bottom: 8px;
     display: block;
+    font-weight: 400;
   }
+
   @media (max-width: 640px) {
     .header-nav { display: none; }
-    .brand-tag { display: none; }
-    .hero { padding: 60px 16px 24px; min-height: auto; }
-    .card { padding: 24px 20px; }
+    .landing { padding: 30px 16px 50px; min-height: auto; }
+    .landing-tagline { margin-bottom: 48px; font-size: 11px; }
+    .landing-cards { gap: 14px; }
+    .landing-card { padding: 32px 24px; min-width: 100%; }
+    .landing-card-icon { font-size: 34px; margin-bottom: 18px; }
+    .landing-card-title { font-size: 28px; }
+    .secondary-actions { margin-top: 36px; gap: 12px; }
   }
 </style>
 </head>
@@ -221,11 +258,8 @@
 <header class="header">
   <div class="header-inner">
     <a href="/" class="brand">
-      <div class="brand-icon">C</div>
-      <div>
-        <div class="brand-text">C<em>2</em>C</div>
-        <div class="brand-tag">property market</div>
-      </div>
+      <span class="brand-text">C<em>2</em>C</span>
+      <span class="brand-tag">property market</span>
     </a>
     <nav class="header-nav">
       <a href="/publicar" class="nav-link">Publicar</a>
@@ -236,38 +270,28 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h1 class="hero-title">El mercado<br><span class="accent">inmobiliario</span> C2C</h1>
-    <p class="hero-subtitle">Publicá, comprá y tasá propiedades sin intermediarios. Persona a persona, con IA, mercado chileno.</p>
+  <section class="landing">
+    <h1 class="landing-logo">C<em>2</em>C</h1>
+    <p class="landing-tagline">property market · persona a persona</p>
 
-    <div class="cards">
-      <a href="/publicar" class="card">
-        <span class="card-icon">📸</span>
-        <h2 class="card-title">Publicar propiedad</h2>
-        <p class="card-desc">Subí tu propiedad en minutos. Te guiamos con foto-to-shoot, descripción profesional y reel listo para Instagram.</p>
-        <span class="card-cta">Empezar a publicar</span>
+    <div class="landing-cards">
+      <a href="/publicar" class="landing-card">
+        <span class="landing-card-icon">🏡</span>
+        <h2 class="landing-card-title">Quiero vender</h2>
+        <p class="landing-card-desc">Publicá tu propiedad sin comisiones de corredor. Te guiamos con foto-shoot, descripción profesional y reel listo para Instagram.</p>
+        <span class="landing-card-cta">Empezar a publicar</span>
       </a>
 
-      <a href="/tasar" class="card">
-        <span class="card-icon">💼</span>
-        <h2 class="card-title">Tasar mi propiedad</h2>
-        <p class="card-desc">Valorización profesional con datos reales (CBR, SII, plan regulador). Recibí un informe en minutos.</p>
-        <span class="card-cta">Comenzar tasación</span>
+      <a href="/comprar" class="landing-card">
+        <span class="landing-card-icon">🔍</span>
+        <h2 class="landing-card-title">Quiero comprar</h2>
+        <p class="landing-card-desc">Explorá el feed de propiedades de la comunidad. Reels, fotos y chat directo con el vendedor — sin intermediarios.</p>
+        <span class="landing-card-cta">Explorar propiedades</span>
       </a>
+    </div>
 
-      <a href="/comprar" class="card">
-        <span class="card-icon">🔍</span>
-        <h2 class="card-title">Comprar propiedad</h2>
-        <p class="card-desc">Explorá el feed de propiedades de la comunidad. Reels, fotos y chat directo con el vendedor.</p>
-        <span class="card-cta">Explorar propiedades</span>
-      </a>
-
-      <div class="card coming-soon">
-        <span class="card-icon">🤖</span>
-        <h2 class="card-title">Asistente IA</h2>
-        <p class="card-desc">Tu asesor personal disponible 24/7. Te acompaña en la búsqueda, te avisa de oportunidades y resuelve dudas.</p>
-        <span class="card-cta">Próximamente</span>
-      </div>
+    <div class="secondary-actions">
+      <a href="/tasar" class="secondary-link"><span class="icon">💼</span>Tasar mi propiedad gratis</a>
     </div>
   </section>
 
