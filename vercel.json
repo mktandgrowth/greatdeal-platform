@@ -12,20 +12,28 @@
       "destination": "https://ia-prop.vercel.app/:path*"
     },
     {
-      "source": "/buscar",
-      "destination": "https://ia-prop.vercel.app/"
+      "source": "/publicar",
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/?modo=publicar"
     },
     {
-      "source": "/buscar/:path*",
-      "destination": "https://ia-prop.vercel.app/:path*"
+      "source": "/publicar/:path*",
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/:path*?modo=publicar"
+    },
+    {
+      "source": "/comprar",
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/"
+    },
+    {
+      "source": "/comprar/:path*",
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/:path*"
+    },
+    {
+      "source": "/buscar",
+      "destination": "/tasar"
     },
     {
       "source": "/reels",
-      "destination": "https://greatdeal-app-7b95.vercel.app/"
-    },
-    {
-      "source": "/reels/:path*",
-      "destination": "https://greatdeal-app-7b95.vercel.app/:path*"
+      "destination": "/comprar"
     }
   ],
   "headers": [

@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreatDeal · Plataforma inmobiliaria con IA</title>
-<meta name="description" content="Plataforma todo-en-uno: tasar, vender y crear reels de propiedades con IA. Mercado chileno.">
+<title>C2C · property market</title>
+<meta name="description" content="C2C — property market. Publicá, comprá y tasá propiedades con IA. Mercado chileno C2C (de persona a persona).">
+<meta property="og:title" content="C2C · property market">
+<meta property="og:description" content="Publicá, comprá y tasá propiedades con IA. C2C inmobiliario para Chile.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -153,11 +156,16 @@
     color: var(--text-primary);
     letter-spacing: 0.02em;
   }
+  .brand-text em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
   .brand-tag {
     color: var(--text-muted);
     font-size: 10px;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-family: 'Inter', sans-serif;
     margin-top: 2px;
   }
@@ -213,58 +221,58 @@
 <header class="header">
   <div class="header-inner">
     <a href="/" class="brand">
-      <div class="brand-icon">G</div>
+      <div class="brand-icon">C</div>
       <div>
-        <div class="brand-text">GreatDeal</div>
-        <div class="brand-tag">Plataforma inmobiliaria · IA</div>
+        <div class="brand-text">C<em>2</em>C</div>
+        <div class="brand-tag">property market</div>
       </div>
     </a>
     <nav class="header-nav">
+      <a href="/publicar" class="nav-link">Publicar</a>
       <a href="/tasar" class="nav-link">Tasar</a>
-      <a href="/buscar" class="nav-link">Buscar</a>
-      <a href="/reels" class="nav-link">Reels</a>
+      <a href="/comprar" class="nav-link">Comprar</a>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <h1 class="hero-title">Tu plataforma<br><span class="accent">inmobiliaria</span> con IA</h1>
-    <p class="hero-subtitle">Tasa, busca, vende y crea contenido profesional para tus propiedades. Todo en un solo lugar, mercado chileno.</p>
+    <h1 class="hero-title">El mercado<br><span class="accent">inmobiliario</span> C2C</h1>
+    <p class="hero-subtitle">Publicá, comprá y tasá propiedades sin intermediarios. Persona a persona, con IA, mercado chileno.</p>
 
     <div class="cards">
+      <a href="/publicar" class="card">
+        <span class="card-icon">📸</span>
+        <h2 class="card-title">Publicar propiedad</h2>
+        <p class="card-desc">Subí tu propiedad en minutos. Te guiamos con foto-to-shoot, descripción profesional y reel listo para Instagram.</p>
+        <span class="card-cta">Empezar a publicar</span>
+      </a>
+
       <a href="/tasar" class="card">
         <span class="card-icon">💼</span>
         <h2 class="card-title">Tasar mi propiedad</h2>
-        <p class="card-desc">Valorización profesional con datos reales del mercado chileno (CBR, SII, plan regulador). Recibe un informe en minutos.</p>
+        <p class="card-desc">Valorización profesional con datos reales (CBR, SII, plan regulador). Recibí un informe en minutos.</p>
         <span class="card-cta">Comenzar tasación</span>
       </a>
 
-      <a href="/buscar" class="card">
+      <a href="/comprar" class="card">
         <span class="card-icon">🔍</span>
-        <h2 class="card-title">Buscar propiedad</h2>
-        <p class="card-desc">Cuéntanos qué buscas y encontramos la propiedad perfecta al mejor precio. Filtros inteligentes con IA.</p>
+        <h2 class="card-title">Comprar propiedad</h2>
+        <p class="card-desc">Explorá el feed de propiedades de la comunidad. Reels, fotos y chat directo con el vendedor.</p>
         <span class="card-cta">Explorar propiedades</span>
-      </a>
-
-      <a href="/reels" class="card">
-        <span class="card-icon">📹</span>
-        <h2 class="card-title">Crear reel para Instagram</h2>
-        <p class="card-desc">Subí tus videos de la propiedad y obtené un reel profesional con música, subtítulos y mejora con IA.</p>
-        <span class="card-cta">Generar mi reel</span>
       </a>
 
       <div class="card coming-soon">
         <span class="card-icon">🤖</span>
-        <h2 class="card-title">Chat con Valentina</h2>
-        <p class="card-desc">Tu asesora IA inmobiliaria personal, disponible 24/7 para resolver tus dudas y guiarte en cada paso.</p>
-        <span class="card-cta">Hablar con Valentina</span>
+        <h2 class="card-title">Asistente IA</h2>
+        <p class="card-desc">Tu asesor personal disponible 24/7. Te acompaña en la búsqueda, te avisa de oportunidades y resuelve dudas.</p>
+        <span class="card-cta">Próximamente</span>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <span class="footer-mark">GreatDeal Platform</span>
+    <span class="footer-mark">C2C · property market</span>
     Región Metropolitana · Chile · 2026
   </footer>
 </main>
