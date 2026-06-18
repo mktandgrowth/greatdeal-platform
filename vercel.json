@@ -10,30 +10,28 @@
     {
       "source": "/tasar/:path*",
       "destination": "https://ia-prop.vercel.app/:path*"
-    },
+    }
+  ],
+  "redirects": [
     {
       "source": "/publicar",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/?modo=publicar"
-    },
-    {
-      "source": "/publicar/:path*",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/:path*?modo=publicar"
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/?modo=publicar",
+      "permanent": false
     },
     {
       "source": "/comprar",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/"
-    },
-    {
-      "source": "/comprar/:path*",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/:path*"
+      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/",
+      "permanent": false
     },
     {
       "source": "/buscar",
-      "destination": "/tasar"
+      "destination": "/tasar",
+      "permanent": false
     },
     {
       "source": "/reels",
-      "destination": "/comprar"
+      "destination": "/comprar",
+      "permanent": false
     }
   ],
   "headers": [
