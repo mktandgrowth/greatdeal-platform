@@ -2,17 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/tasar",
-      "destination": "https://ia-prop.vercel.app/"
+      "destination": "https://ia-prop.vercel.app/",
+      "permanent": false
     },
-    {
-      "source": "/tasar/:path*",
-      "destination": "https://ia-prop.vercel.app/:path*"
-    }
-  ],
-  "redirects": [
     {
       "source": "/publicar",
       "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/?modo=publicar",
