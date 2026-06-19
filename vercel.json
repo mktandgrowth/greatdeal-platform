@@ -19,6 +19,11 @@
       "permanent": false
     },
     {
+      "source": "/vender",
+      "destination": "https://greatdeal-app-7b95.vercel.app/?modo=publicar",
+      "permanent": false
+    },
+    {
       "source": "/buscar",
       "destination": "/tasar",
       "permanent": false
