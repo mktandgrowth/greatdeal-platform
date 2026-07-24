@@ -211,7 +211,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    max-width: 760px;
+    max-width: 1140px;
   }
   .landing-card {
     flex: 1;
@@ -281,6 +281,150 @@
   }
   .landing-card:hover .landing-card-cta::after {
     transform: translateX(4px);
+  }
+  /* Card destacada (Tasa gratis) */
+  .landing-card-featured {
+    border-color: var(--gold-border);
+    background: linear-gradient(135deg, rgba(201,168,106,0.06), rgba(201,168,106,0.02));
+    position: relative;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .landing-card-featured:hover {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(201,168,106,0.1), rgba(201,168,106,0.03));
+  }
+  .landing-card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--gold);
+    color: #1C1A17;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  /* Modal captura de leads */
+  .lead-overlay {
+    position: fixed; inset: 0;
+    background: rgba(10,10,11,0.7);
+    backdrop-filter: blur(8px);
+    z-index: 500;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 20px;
+    animation: leadFadeIn 0.2s ease;
+  }
+  .lead-overlay.is-open { display: flex; }
+  @keyframes leadFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .lead-modal {
+    max-width: 460px; width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--gold-border);
+    border-radius: 20px;
+    padding: 34px 32px 28px;
+    animation: leadSlideUp 0.3s ease;
+  }
+  @keyframes leadSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .lead-modal-icon {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #B08842);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 18px;
+  }
+  .lead-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .lead-modal-sub {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .lead-field { margin-bottom: 14px; }
+  .lead-field label {
+    display: block;
+    font-size: 10.5px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .lead-field input {
+    width: 100%;
+    padding: 13px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .lead-field input:focus {
+    border-color: var(--gold-border);
+    background: rgba(201,168,106,0.03);
+  }
+  .lead-error {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(180,60,60,0.15);
+    color: #F8B4B4;
+    font-size: 12.5px;
+    margin-bottom: 12px;
+    display: none;
+  }
+  .lead-error.is-visible { display: block; }
+  .lead-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .lead-btn {
+    flex: 1;
+    padding: 13px 16px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .lead-btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+  .lead-btn-primary {
+    background: var(--gold);
+    color: #1C1A17;
+    flex: 1.6;
+  }
+  .lead-btn-primary:hover { background: #D4B380; }
+  .lead-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .lead-privacy {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.4;
   }
   .secondary-actions {
     margin-top: 48px;
@@ -394,11 +538,18 @@
         <p class="landing-card-desc">Explorá el feed de propiedades de la comunidad C2C: reels, fotos y chat directo con el vendedor, sin intermediarios.</p>
         <span class="landing-card-cta">Ver propiedades</span>
       </a>
+
+      <button type="button" onclick="openLeadModal()" class="landing-card landing-card-featured">
+        <span class="landing-card-badge">Gratis</span>
+        <span class="landing-card-icon">💰</span>
+        <h2 class="landing-card-title">Tasa tu propiedad</h2>
+        <p class="landing-card-desc">Descubrí el precio real de tu casa o departamento en menos de 2 minutos. Nuestra tasadora IA analiza tu sector y te entrega un valor honesto — sin costo, sin compromiso.</p>
+        <span class="landing-card-cta">Tasar ahora gratis</span>
+      </button>
     </div>
 
     <div class="secondary-actions">
       <a href="/comprar" class="secondary-link"><span class="icon">📱</span>Ver feed de propiedades</a>
-      <a href="/tasar?view=vendedor" class="secondary-link"><span class="icon">💼</span>Tasar propiedad gratis</a>
     </div>
   </section>
 
@@ -407,6 +558,32 @@
     Región Metropolitana · Chile · 2026
   </footer>
 </main>
+
+<!-- MODAL DE CAPTURA DE LEADS (tasación gratis) -->
+<div id="leadOverlay" class="lead-overlay" onclick="closeLeadModal(event)">
+  <div class="lead-modal" onclick="event.stopPropagation()">
+    <div class="lead-modal-icon">💰</div>
+    <h3 class="lead-modal-title">Tasa tu propiedad gratis</h3>
+    <p class="lead-modal-sub">Dejanos tu contacto y te llevamos con Valentina, nuestra tasadora IA. Sin costo, sin compromiso.</p>
+
+    <div id="leadError" class="lead-error"></div>
+
+    <div class="lead-field">
+      <label for="leadEmail">Email</label>
+      <input id="leadEmail" type="email" placeholder="tu@email.com" autocomplete="email"/>
+    </div>
+    <div class="lead-field">
+      <label for="leadWa">WhatsApp</label>
+      <input id="leadWa" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel"/>
+    </div>
+
+    <div class="lead-actions">
+      <button type="button" class="lead-btn lead-btn-secondary" onclick="closeLeadModal()">Después</button>
+      <button type="button" id="leadSubmitBtn" class="lead-btn lead-btn-primary" onclick="submitLead()">Entrar al tasador →</button>
+    </div>
+    <p class="lead-privacy">Al continuar aceptás que nos contactemos por WhatsApp. Nada de spam, prometido.</p>
+  </div>
+</div>
 
 <script>
   // Toggle dropdown "Mi asistente IA"
@@ -418,6 +595,83 @@
   document.addEventListener('click', function(e) {
     var d = document.getElementById('aiDropdown');
     if (d && !d.contains(e.target)) d.classList.remove('is-open');
+  });
+
+  // ─── LEAD CAPTURE ──────────────────────────────────────────
+  var LEADS_API = 'https://greatdeal-api.onrender.com/api/lead/capture';
+
+  function openLeadModal() {
+    document.getElementById('leadOverlay').classList.add('is-open');
+    setTimeout(function(){ document.getElementById('leadEmail').focus(); }, 100);
+  }
+  function closeLeadModal(e) {
+    if (e && e.target && e.target.id !== 'leadOverlay') return;
+    document.getElementById('leadOverlay').classList.remove('is-open');
+    document.getElementById('leadError').classList.remove('is-visible');
+  }
+  function showLeadError(msg) {
+    var el = document.getElementById('leadError');
+    el.textContent = msg;
+    el.classList.add('is-visible');
+  }
+  async function submitLead() {
+    var email = document.getElementById('leadEmail').value.trim();
+    var wa = document.getElementById('leadWa').value.trim();
+    var btn = document.getElementById('leadSubmitBtn');
+
+    // Validaciones simples
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showLeadError('Ingresá un email válido');
+      return;
+    }
+    var waDigits = wa.replace(/\D/g,'');
+    if (waDigits.length < 8) {
+      showLeadError('Ingresá un WhatsApp válido');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    document.getElementById('leadError').classList.remove('is-visible');
+
+    try {
+      var r = await fetch(LEADS_API, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          email: email,
+          wa: waDigits,
+          source: 'home_tasador_gratis',
+          intent: 'tasar',
+        }),
+      });
+      var j = await r.json();
+      if (!r.ok) {
+        showLeadError(j.detail || j.error || 'No pudimos guardar tus datos. Reintentá.');
+        btn.disabled = false;
+        btn.textContent = 'Entrar al tasador →';
+        return;
+      }
+      // Guardar el lead_id en localStorage para trackear conversión después
+      try {
+        localStorage.setItem('c2c_lead_id', j.id || '');
+        localStorage.setItem('c2c_lead_email', email);
+        localStorage.setItem('c2c_lead_wa', waDigits);
+      } catch(e) {}
+      // Redirigir al tasador con view=vendedor
+      window.location.href = '/tasar?view=vendedor&lead=1';
+    } catch (err) {
+      showLeadError('Error de conexión — reintentá');
+      btn.disabled = false;
+      btn.textContent = 'Entrar al tasador →';
+    }
+  }
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('leadOverlay').classList.remove('is-open');
+    }
   });
 </script>
 
