@@ -5,22 +5,22 @@
   "redirects": [
     {
       "source": "/tasar",
-      "destination": "https://ia-prop.vercel.app/",
+      "destination": "https://tasar.c2cprops.com/",
       "permanent": false
     },
     {
       "source": "/publicar",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/?modo=publicar",
+      "destination": "https://comprar.c2cprops.com/?modo=publicar",
       "permanent": false
     },
     {
       "source": "/comprar",
-      "destination": "https://properties-app-mktandgrowth-5238s-projects.vercel.app/",
+      "destination": "https://comprar.c2cprops.com/",
       "permanent": false
     },
     {
       "source": "/vender",
-      "destination": "https://greatdeal-app-7b95.vercel.app/",
+      "destination": "https://vender.c2cprops.com/",
       "permanent": false
     },
     {
