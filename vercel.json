@@ -10,7 +10,7 @@
     },
     {
       "source": "/publicar",
-      "destination": "https://comprar.c2cprops.com/?modo=publicar",
+      "destination": "https://vender.c2cprops.com/",
       "permanent": false
     },
     {
