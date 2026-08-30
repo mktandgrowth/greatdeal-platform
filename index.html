@@ -202,8 +202,42 @@
     color: var(--text-muted);
     letter-spacing: 0.3em;
     text-transform: lowercase;
-    margin-bottom: 64px;
+    margin-bottom: 34px;
     font-weight: 300;
+  }
+  /* CTA principal: acceso al marketplace */
+  .landing-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 56px;
+    padding: 20px 52px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+    color: #1C1A17;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 10px 40px rgba(201,168,106,0.28);
+    transition: all 0.25s ease;
+  }
+  .landing-hero-cta::after {
+    content: "\2192";
+    font-size: 18px;
+    transition: transform 0.25s ease;
+  }
+  .landing-hero-cta:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #e2c98d, var(--gold));
+    box-shadow: 0 16px 50px rgba(201,168,106,0.42);
+  }
+  .landing-hero-cta:hover::after { transform: translateX(5px); }
+  .landing-hero-cta:focus-visible {
+    outline: 2px solid var(--gold-bright);
+    outline-offset: 4px;
   }
   .landing-cards {
     display: flex;
@@ -426,33 +460,6 @@
     margin-top: 12px;
     line-height: 1.4;
   }
-  .secondary-actions {
-    margin-top: 48px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-  .secondary-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.2s;
-    font-size: 13px;
-  }
-  .secondary-link:hover {
-    color: var(--gold);
-    border-color: var(--gold-border);
-    background: rgba(201,168,106,0.04);
-  }
-  .secondary-link .icon {
-    margin-right: 6px;
-  }
   .footer {
     padding: 30px 24px;
     text-align: center;
@@ -476,12 +483,18 @@
   @media (max-width: 640px) {
     .header-nav { display: none; }
     .landing { padding: 30px 16px 50px; min-height: auto; }
-    .landing-tagline { margin-bottom: 48px; font-size: 11px; }
+    .landing-tagline { margin-bottom: 26px; font-size: 11px; }
+    .landing-hero-cta {
+      margin-bottom: 40px;
+      padding: 17px 34px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      max-width: 100%;
+    }
     .landing-cards { gap: 14px; }
     .landing-card { padding: 32px 24px; min-width: 100%; }
     .landing-card-icon { font-size: 34px; margin-bottom: 18px; }
     .landing-card-title { font-size: 28px; }
-    .secondary-actions { margin-top: 36px; gap: 12px; }
   }
 </style>
 </head>
@@ -531,6 +544,8 @@
     <h1 class="landing-logo">C<em>2</em>C</h1>
     <p class="landing-tagline">property market · persona a persona</p>
 
+    <a href="/comprar" class="landing-hero-cta">Ver propiedades</a>
+
     <div class="landing-cards">
       <a href="/vender" class="landing-card">
         <span class="landing-card-icon">🏡</span>
@@ -542,8 +557,8 @@
       <a href="/comprar" class="landing-card">
         <span class="landing-card-icon">🔍</span>
         <h2 class="landing-card-title">Quiero comprar o arrendar</h2>
-        <p class="landing-card-desc">Explorá el feed de propiedades de la comunidad C2C: reels, fotos y chat directo con el vendedor, sin intermediarios.</p>
-        <span class="landing-card-cta">Ver propiedades</span>
+        <p class="landing-card-desc">Explorá las propiedades de la comunidad C2C: reels, fotos y chat directo con el vendedor, sin intermediarios.</p>
+        <span class="landing-card-cta">Explorar el catálogo</span>
       </a>
 
       <button type="button" onclick="openLeadModal()" class="landing-card landing-card-featured">
@@ -553,10 +568,6 @@
         <p class="landing-card-desc">Descubrí el precio real de tu casa o departamento en menos de 2 minutos. Nuestra tasadora IA analiza tu sector y te entrega un valor honesto — sin costo, sin compromiso.</p>
         <span class="landing-card-cta">Tasar ahora gratis</span>
       </button>
-    </div>
-
-    <div class="secondary-actions">
-      <a href="/comprar" class="secondary-link"><span class="icon">📱</span>Ver feed de propiedades</a>
     </div>
   </section>
 
