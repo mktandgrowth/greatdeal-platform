@@ -4,6 +4,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "comment": "El home de 3 tarjetas salio: c2cprops.com entra directo al marketplace, que abre en Explorar. index.html queda en el repo por si hay que volver atras.",
+      "source": "/",
+      "destination": "https://comprar.c2cprops.com/",
+      "permanent": false
+    },
+    {
       "source": "/tasar",
       "destination": "https://tasar.c2cprops.com/",
       "permanent": false
